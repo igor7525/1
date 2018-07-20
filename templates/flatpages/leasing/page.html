@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}{{ flatpage.title }} {{ config.SITE_NAME }}{% endblock %}
+
+{% block breadboard %}
+{% load flatpages %}
+
+{% get_flatpages '/leasing-credit/' as about_pages %}
+
+<div class="bread-cover">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul>
+					<li>
+						<a href="/">GrossAuto</a>
+					</li>
+					{% for page in about_pages %}
+					{% if forloop.first %}
+					<li>
+						<a href="{{ page.url }}">{{ page.title|title }}</a>
+					</li>
+					{% else %}
+					
+					{% if page.url == request.path %}
+					<li>
+						<a href="{{ page.url }}">{{ page.title|title }}</a>
+					</li>
+					{% endif %}
+
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block section %}
+<section class="section-lising">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="lising-saitbar">
+					<ul class="lising-list">
+						<li><a href="/leasing-credit/">Лизинг/Кредит</a>
+							<ul>
+								<li><a href="/leasing-credit/why-leasing/">Почему лизинг</a>
+								</li>
+								<li><a href="/leasing-credit/why-credit/">Почему кредит</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="content-lising editor-styles">{{ flatpage.content }}</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block custom_js %}
+<script type="text/javascript">
+$(document).ready(function() {
+	var flatpage_form = $('form.flatpage-forms');
+
+    flatpage_form.ajaxForms({
+        'url': '/feedback/ajax' + window.location.pathname,
+        'onstart': function (event) {
+        	if (flatpage_form.find('.accept_ppd').prop("checked") == false) {
+                flatpage_form.find(".accept_ppd").siblings("div").effect("pulsate", {}, 800);
+
+                alert("You did not confirm the consent to the processing of personal data!");
+            }
+            
+            flatpage_form.find("[name='csrfmiddlewaretoken']").val(getCookie('csrftoken'));
+            flatpage_form.find("[name='urlhash']").val(window.location.hash);
+            flatpage_form.find("[name='useragent']").val(navigator.userAgent);
+        },
+        'onsuccess': function () {
+            flatpage_form.hide();
+            flatpage_form.prev().html("<h5 class='text-success text-center'>Ваша заявка принята!</h5>")
+        }
+    });
+});
+</script>
+{% endblock %}

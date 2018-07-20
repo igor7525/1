@@ -1,0 +1,45 @@
+{% load static catalog %}
+
+<li class="{% if item.sold == '1' %}off-li{% endif %}">
+	<div class="img-catalog">
+		<a href="{% url 'catlog-detail' item.slug item.id %}">
+            {% if item.new_offer %}
+            <div class="new_offer"></div>
+            {% elif item.sale_offer %}
+            <div class="sale_offer"></div>
+            {% endif %}
+			{% if item.photos.exists %}
+			<img src="{{ item.photos.all.first.image.url_298x176 }}" alt="">
+			{% else %}
+			<img src="{% static 'img/conponent/no-image.298x176.png' %}" alt="">
+			{% endif %}
+		</a>
+	</div>
+	<div class="catalog-description">
+		<a href="{% url 'catlog-detail' item.slug item.id %}">{{ item.name }}</a>
+		<div class="price-catalog">
+			<p>{{ item.price|currency:'ru_RU' }}</p>
+			{% if item.stock %}
+			<div class="action">Акция</div>
+			{% endif %}
+		</div>
+		<table>
+			<tbody>
+				<tr>
+					<td>Тип техники</td>
+					<td>{{ item.char_vehicle_type }}</td>
+				</tr>
+				<tr>
+					<td>Год выпуска</td>
+					<td>{{ item.char_year_of_issue }}</td>
+				</tr>
+				{% if item.char_mileage %}
+				<tr>
+					<td>Пробег, км</td>
+					<td>{{ item.char_mileage }}</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+</li>

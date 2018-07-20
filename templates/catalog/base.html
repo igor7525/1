@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="cmsmagazine" content="c6c4de63c6c263ce6ebac3fcd233e146" />
+	<title>{% block title %}{{ config.SITE_NAME }}{% endblock %}</title>
+	{% include "include_css.html" %}
+
+	{% block style %}{% endblock %}
+	<script src="{% static 'js/plugins/jquery-2.1.4.min.js' %}"></script>
+
+	<!-- font raleway -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,900" rel="stylesheet">
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter42347829 = new Ya.Metrika({
+                    id:42347829,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+ 
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+ 
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/42347829" style="position:absolute; left:-9999px;" alt="" /></div>
+	</noscript>
+	<!-- /Yandex.Metrika counter --> 
+</head>
+<body>
+	{% include "include_modal_request.html" %}
+	
+		{% include "include_modal_second.html" %}
+		
+	{% include "include_nav.html" %}
+
+	{% block header %}{% endblock %}
+
+	{% block breadboard %}{% endblock %}
+
+	{% block section %}{% endblock %}
+
+	{% block additional_section %}{% endblock %}
+
+	{% include "include_footer.html" %}
+
+    {% include "include_js.html" %}
+
+    {% block custom_js %}{% endblock %}
+
+<script type='text/javascript' charset='utf-8'>
+(function(w, d, undefined) {
+    w.CH_SERVER_NAME = '//chaser.ru',
+    w.CH_HASH = '2d3bd60a2d899b49827efa1d74476809';
+    var p = d.createElement('script'),
+        s = d.getElementsByTagName('head')[0];
+    p.type = 'text/javascript';
+    p.charset = 'utf-8';
+    p.async = 'true';
+    p.src = (d.location.protocol == 'https:' ? 'https:' : 'http:') + w.CH_SERVER_NAME + '/widget/1.1/js/widget.js';
+    s.appendChild(p);
+})(window, document);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+{% load static %}
+{% load i18n %}
+<div style="width:55%; float: left; margin: 10px 0;">
+<a href="{{request.scheme}}://{{request.get_host}}"><img src="{{request.scheme}}://{{request.get_host}}/static/img/logo-main.png" alt="Gross Auto"></a>
+</div>
+<div style="width:44%; float: left;  margin-top: 0px;">
+<ul style="list-style:none;float: left; text-align: left; margin-top: 0px; font-family:'Helvetica Neue', arial;padding-left: 30px">
+	<li style="min-height: 30px;font-size: 14px;">
+        <img src="{{request.scheme}}://{{request.get_host}}/static/img/geo-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">Москва, 31 км МКАД, Востряковский проезд, д. 10Б, стр. 2
+    </li>
+    <li style="min-height: 30px;font-size: 14px;">
+        <img src="{{request.scheme}}://{{request.get_host}}/static/img/geo-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">Санкт-Петербург, Грузовой проезд, д. 27П
+    </li>
+	<li style="min-height: 30px;font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/mail-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">adv@truck-used.ru</li>
+	<li style="min-height: 30px;    font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/phone-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">+7 (495) 120-60-01 в любое время</li>
+	<li style="min-height: 30px;font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/web-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">www.truck-used.ru</li>
+</ul>
+</div>
+
+<hr style="display: block;height: 1px;border: 0;border-top: 1px solid #000000;margin: 1em 0;padding: 0;width: 100%;">
+
+<div style="width: 48%;float: left;padding-right: 2%;">
+<h3 style=" font-family:'Helvetica Neue', arial;font-size: 22px; font-weight: bold; margin-top: 0;">Контакты</h3>
+<ul style="list-style:none;float: left; text-align: left; padding: 0;
+    margin: 0; font-family:'Helvetica Neue', arial;">
+    <li style="min-height: 30px;font-size: 14px;">
+        <img src="{{request.scheme}}://{{request.get_host}}/static/img/geo-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">Москва, 31 км МКАД, Востряковский проезд, д. 10Б, стр. 2
+    </li>
+    <li style="min-height: 30px;font-size: 14px;">
+        <img src="{{request.scheme}}://{{request.get_host}}/static/img/geo-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">Санкт-Петербург, Грузовой проезд, д. 27П
+    </li>
+	<li style="min-height: 30px;font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/mail-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">adv@truck-used.ru</li>
+	<li style="min-height: 30px;    font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/phone-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">+7 (495) 120-60-01 в любое время</li>
+	<li style="min-height: 30px;font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/web-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">www.truck-used.ru</li>
+</ul>
+ </div>                       
+   
+<div style="width: 48%;float: left;padding-right: 2%;">                     
+<h3 style="font-family:'Helvetica Neue', arial;font-size: 22px; font-weight: bold; margin-top: 0;">График работы</h3>
+<p style="font-size: 14px;font-family:'Helvetica Neue', arial;">{{ config.SCHEDULE|safe }}</p>
+</div>
+					
+
+<div style="width: 98%;float: left;padding-right: 2%;">
+<h3 style="margin-bottom: 10px;font-family:'Helvetica Neue', arial;font-size: 22px; font-weight: bold;">Как к нам проехать?</h3>
+<h3 style="margin-bottom: 10px;font-family:'Helvetica Neue', arial;font-size: 22px; font-weight: bold;">Мы в Москве</h3>
+
+<div class="mapprint">
+<img src="{{request.scheme}}://{{request.get_host}}/static/img/mapprint.png" alt="Gross Auto в Москве на карте" >
+</div>
+
+<h3 style="margin: 10px 0;font-family:'Helvetica Neue', arial;font-size: 22px; font-weight: bold;">Мы в Санкт-Петербурге</h3>
+
+<div class="mapprint">
+<img src="{{request.scheme}}://{{request.get_host}}/static/img/mapprint_spb.png" alt="Gross Auto в Санкт-Петербурге на карте" >
+</div>
+
+</div>

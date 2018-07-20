@@ -1,0 +1,101 @@
+{% extends "catalog/base.html" %}
+{% load static %}
+
+{% block title %}{{ title|capfirst }} {{ config.SITE_NAME }}{% endblock %}
+
+{% block breadboard %}
+<div class="bread-cover">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul>
+					<li>
+						<a href="/">GrossAuto</a>
+					</li>
+					<li>
+						<a href="{% url 'catlog-list' category_slug %}">{{ title|capfirst }}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block section %}
+<div class="catalog-section">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="saitbar">
+					<div class="show-filter">
+						<div class="inline-block"><i class="fa fa-filter"></i>Фильтр<i class="fa fa-caret-down"></i></div>
+					</div>
+					<div class="modal-wr">
+						<div class="close-modal"><i class="fa fa-close"></i></div>
+						<div class="tabs-filter">
+						<form id="filter">
+							<div class="item active">
+								<div class="title-saitbar"><i class="fa fa-caret-down"></i>Производитель</div>
+								<div class="content-fiil">
+									{% for item in brand_list %}
+									<label class="checkbox"><input type="checkbox" name="char_brand__name__in" value="{{ item.char_brand__name }}">{{ item.char_brand__name }}</label>
+									{% endfor %}
+								</div>
+							</div>
+							<div class="item active">
+								<div class="title-saitbar"><i class="fa fa-caret-down"></i>Год выпуска</div>
+								<div class="content-fiil">
+									<div class="wrapper-slider-ui">
+										<!-- char google -->
+										<div class="wr-char">
+											<div id="number_format_chart"></div>
+										</div>
+										<!-- char google -->
+										<div class="texter-sl">
+											<input type="tel" id="minCost" name="char_year_of_issue__range" class="min-val" value="{{ year_interval.char_year_of_issue__min }}"/>
+											<input type="tel" id="maxCost" name="char_year_of_issue__range" class="max-val" value="{{ year_interval.char_year_of_issue__max }}"/>
+										</div>
+										<div id="slider"></div>
+									</div>
+								</div>
+							</div>
+{% for prop, li in prop_filter %}
+<div class="item">
+<div class="title-saitbar"><i class="fa fa-caret-down"></i>{{ prop.name }}</div>
+<div class="content-fiil">
+{% for item in li %}
+<label class="checkbox"><input type="checkbox" name="props__value__in" value="{{ item.0 }}">{{ item.0 }}</label>
+{% endfor %}
+</div>
+</div>
+{% endfor %}
+							<div class="default-fill"><a href=".">Сбросить все параметры</a></div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="content-catalog">
+					<div class="sort">
+						<div class="inline-block">
+							<div class="sort-block">
+								<mark>Сортировать:</mark>
+								<select id="ordering">
+									<option value="-created_at">По обновлению</option>
+									<option value="price">По цене</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<ul class="ul-catalog"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    $(function() {
+    	filter();
+    });
+</script>
+{% endblock %}

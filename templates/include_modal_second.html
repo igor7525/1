@@ -1,0 +1,42 @@
+{% load i18n %}
+
+<div class="modal-window modal-post">
+	<div class="inline-block">
+<i class="fa fa-close"></i>
+<form id="postform" class="ivalid-post ipostform" method="post" action="">
+			{% csrf_token %}
+			<h4>Отправьте коммерческое предложение на эл. почту себе или коллегам, чтобы не упустить покупку.</h4>
+			<h5>Поля, отмеченные « <span>*</span> » обязательны для заполнения</h5>
+			<label>
+				<span class="span-required">*</span>
+				<input type="email" name="email" placeholder="E-mail" required>
+			</label>
+			<label>
+				<input class="phone" type="tel" name="phone" placeholder="Телефон" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$">
+			</label>
+			<label>
+				<textarea name="text" placeholder="Комментарий"></textarea>
+			</label>
+			
+			<label class="checkbox active">
+				<input class="accept_ppd" type="checkbox" checked="" required><span>Я согласен с обработкой персональных данных.</span>
+			</label>
+			<div class="submit">
+				<button type="submit" >{% trans "Отправить сообщение" %}</button>
+			</div>
+		</form>
+</div>
+</div>
+
+
+<!-- if the form was validated -->
+<div class="modal-window modal-valid-post">
+	<div class="inline-block">
+		<i class="fa fa-close"></i>
+		<h4>Ваше сообщение отправлено!
+		</h4>
+		<h5>Вы можете продолжить работу на сайте.
+		</h5>
+		<div class="close-window">Вернуться на сайт</div>
+	</div>
+</div>

@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block style %}
+<style type="text/css">
+	footer.footer-inner {
+		border-top: none;
+	}
+</style>
+{% endblock style %}
+
+{% block title %}Контакты {{ config.SITE_NAME }}{% endblock %}
+
+
+{% block breadboard %}
+<div class="bread-cover">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul>
+					<li>
+						<a href="/">GrossAuto</a>
+					</li>
+					<li>
+						<a href="{% url 'contacts' %}">Контакты</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block section %}
+<div class="contact-section">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<h3>Контакты</h3>
+				<div class="contact-top">
+					<div class="left-contact">
+						<div class="link-button print">
+							<a class="pprint-button" href="#">
+								<img src="{% static 'svg/print.svg' %}" alt="" class="svg">Распечать</a>
+						</div>
+						<ul class="concact-ul">
+							<li><i class="marker-o"></i>{{ config.ADDRESS }}</li>
+                            <li><i class="marker-o"></i>{{ config.ADDRESS_SPB }}</li>
+							<li>
+								<i class="envelope"></i>
+								<a class="email" href="mailto:{{ config.EMAIL }}">{{ config.EMAIL }}</a>
+							</li>
+							<li>
+								<i class="phpne-o"></i>
+								<noindex><a href="{{ config.PHONE }}" rel="nofollow">{{ config.PHONE }}</a></noindex>
+							</li>
+						</ul>
+						<h6>График работы</h6>
+						<p>{{ config.SCHEDULE|safe }}</p>
+						<ul class="social-ul">
+							<li>
+								<a href="{{ config.FACEBOOK_LINK }}"  rel="nofollow">
+									<i class="fa fa-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ config.VK_LINK }}"  rel="nofollow">
+									<i class="fa fa-vk"></i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ config.OK_LINK }}"  rel="nofollow">
+									<i class="fa fa-odnoklassniki"></i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ config.INSTAGRAM_LINK }}"  rel="nofollow">
+									<i class="fa fa-instagram"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div id="feedback" class="right-contact">
+						<form class="ajax_contact_form">
+							<p class="big-p text-left">
+								<b>Напишите нам, и мы обязательно вам ответим</b>
+							</p>
+							<p>Если у вас есть какие-то вопросы, или вы просто хотите сказать доброе слово, то вы всегда можете написать нам.</p>
+							{% csrf_token %}
+       						<input type="hidden" name="urlhash"/>
+       						<input type="hidden" value="write" name="form_type"/>
+					        <input type="hidden" name="useragent"/>
+							<label>
+								<input type="text" name="name" placeholder="Ваше имя">
+							</label>
+							<label>
+								<input class="phone" type="tel" name="phone" placeholder="Телефон">
+							</label>
+							<label>
+								<input type="email" name="email" placeholder="E-mail">
+							</label>
+							<label>
+								<textarea name="text" placeholder="Комментарий"></textarea>
+							</label>
+							<label class="checkbox active">
+								<input class="accept_ppd" type="checkbox" checked=""><div>Я согласен с обработкой персональных данных.</div>
+							</label>
+							<div class="submit">
+								<input type="submit" value="{% trans "Отправить сообщение" %}"></button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="hove-drive">
+					<h6>Как к нам проехать?</h6>
+                    <h6>Мы в Москве</h6>
+					<div class="link-button">
+						<a href="yandexnavi://build_route_on_map?lat_to=55.576553569141346&lon_to=37.62280949999998">Проложить маршрут по навигатору</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="map">
+	<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A014123c2d6afdb06c79d4b565bed8ab6ea718fe99ce4016caff3a3d8b36ebefd&amp;width=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+<div class="mapprint">
+<img src="{{request.scheme}}://{{request.get_host}}/static/img/mapprint.png" alt="Gross Auto в Москве на карте" >
+</div>
+
+<div class="contact-section">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+                <div class="hove-drive">
+                    <h6 style="margin-top: 40px;">Мы в Санкт-Петербурге</h6>
+                    <div class="link-button">
+                        <a href="yandexnavi://build_route_on_map?lat_to=59.83774699351048&lon_to=30.45129504492187">Проложить маршрут по навигатору</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="map">
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A94e34d1e664af1caf8e7baf97f8dd76a84f77b1dccb82d5b7547a8331801b6a3&amp;width=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+<div class="mapprint">
+<img src="{{request.scheme}}://{{request.get_host}}/static/img/mapprint_spb.png" alt="Gross Auto в Санкт-Петербурге на карте" >
+</div>
+
+{% endblock section %}
+
+
+{% block custom_js %}
+<script type="text/javascript">
+$(document).ready(function() {
+	var contact_form = $('form.ajax_contact_form');
+        $('.pprint-button').on('click', function(e) {
+            e.preventDefault();
+            var new_wnd = window.open(location.href+"?print=1", "subWindow", "scrollbars=yes");
+            new_wnd.document.close();
+            new_wnd.focus();
+            setTimeout(function() {
+                new_wnd.print();
+//                new_wnd.close();
+            }, 100);
+        });
+
+    contact_form.ajaxForms({
+        'url': '/feedback/ajax' + window.location.pathname,
+        'onstart': function (event) {
+            contact_form.find("[name='csrfmiddlewaretoken']").val(getCookie('csrftoken'));
+            contact_form.find("[name='urlhash']").val(window.location.hash);
+            contact_form.find("[name='useragent']").val(navigator.userAgent);
+
+            if (contact_form.find('.accept_ppd').prop("checked") == false) {
+                contact_form.find(".accept_ppd").siblings("div").effect("pulsate", {}, 800);
+
+                throw "You did not confirm the consent to the processing of personal data!";
+            }
+        },
+        'onsuccess': function () {
+            contact_form.hide();
+            contact_form.parent().append("<h5 class='text-success text-center'>Ваше сообщение отправлено!</h5>")
+        }
+    });
+});
+</script>
+{% endblock %}

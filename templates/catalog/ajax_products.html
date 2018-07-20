@@ -1,0 +1,9 @@
+{% for item in object_list %}
+{% include "catalog/product_card.html" %}
+{% if next_page %}
+<li class="show-more">
+	<input id="page_num" type="hidden" name="page" value="{{ next_page }}">
+	<a href="javascript:void(0)" onclick="next_page()">Показать ещё</a>
+</li>
+{% endif %}
+{% endfor %}

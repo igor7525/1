@@ -1,0 +1,46 @@
+{% extends "news/base.html" %}
+{% load static %}
+
+{% block title %}{{ title|title }} {{ config.SITE_NAME }}{% endblock %}
+
+{% block breadboard %}
+<div class="bread-cover">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul>
+					<li>
+						<a href="/">GrossAuto</a>
+					</li>
+					<li>
+						<a href="{% url 'news-list' %}">{{ model_verbose_name|title }}</a>
+					</li>
+					<li>
+						<a href="{% url 'news-detail' object.id %}">{{ object.title|title }}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block section %}
+<div class="news-page">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="link-prev">
+					<div class="back-link">
+						<a href="{% url 'news-list' %}">Вернуться к списку новостей</a>
+					</div>
+				</div>
+				<h1>{{ object.title|upper }}</h1>
+				<div class="data">{{ object.created_at }}</div>
+				{{ object.text|safe }}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% load i18n %}
+
+<div class="modal-window modal-write">
+	<div class="inline-block">
+		<i class="fa fa-close"></i>
+		<form class="valid-write-us feedback" method="post">
+			{% csrf_token %}
+			<input type="hidden" name="urlhash"/>
+			<input type="hidden" name="form_type" value="write"/>
+       		<input type="hidden" name="useragent"/>
+			<h4>Напишите нам, и мы обязательно вам ответим</h4>
+			<h5>Поля, отмеченные « <span>*</span> » обязательны для заполнения</h5>
+			<label>
+				<span class="span-required">*</span>
+				<input type="text" name="name" placeholder="Ваше имя">
+			</label>
+			<label>
+				<span class="span-required">*</span>
+				<input class="phone" type="tel" name="phone" placeholder="Телефон" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$">
+			</label>
+			<label>
+				<input type="email" name="email" placeholder="E-mail">
+			</label>
+			<label>
+				<textarea name="text" placeholder="Комментарий"></textarea>
+			</label>
+			<label class="checkbox active">
+				<input class="accept_ppd" type="checkbox" checked=""><span>Я согласен с обработкой персональных данных.</span>
+			</label>
+			<div class="submit">
+				<button type="submit">{% trans "Отправить сообщение" %}</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- if the form was validated -->
+<div class="modal-window modal-valid-write">
+	<div class="inline-block">
+		<i class="fa fa-close"></i>
+		<h4>Ваше сообщение отправлено!
+		</h4>
+		<h5>Мы свяжемся с вами в ближайшее время.<br>Вы можете продолжить работу на сайте.
+		</h5>
+		<div class="close-window">Вернуться на сайт</div>
+	</div>
+</div>

@@ -1,0 +1,109 @@
+{% load static catalog %}
+
+<div style="width:40%; float: left; margin: 10px 0;">
+<a href="{{request.scheme}}://{{request.get_host}}"><img src="{{request.scheme}}://{{request.get_host}}/static/img/logo-main.png" alt="Gross Auto"></a>
+</div>
+<div style="width:50%; float: left;  margin-top: 0px;">
+<ul style="list-style:none;float: left; text-align: left; margin-top: 0px; font-family:'Helvetica Neue', arial;padding-left: 30px">
+	<li style="min-height: 30px;font-size: 14px;">
+        <img src="{{request.scheme}}://{{request.get_host}}/static/img/geo-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">Москва, 31 км МКАД, Востряковский проезд, д. 10Б, стр. 2</li>
+	<li style="min-height: 30px;font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/mail-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">adv@truck-used.ru</li>
+	<li style="min-height: 30px;    font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/phone-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">+7 (495) 120-60-01 в любое время</li>
+	<li style="min-height: 30px;font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/web-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">www.truck-used.ru</li>
+</ul>
+</div>
+
+<hr style="display: block;height: 1px;border: 0;border-top: 1px solid #000000;margin: 1em 0;padding: 0;width: 100%;">
+<h1 style="font-family:'Helvetica Neue', arial;font-size: 22px;    margin-bottom: 0;">{{ object.name }}</h1>
+<p style=" font-family:'Helvetica Neue', arial;font-size: 22px; font-weight: bold;color: #ffa500; margin-top: 0;">{{ object.price|currency:'ru_RU' }}</p>
+<p style="font-family:'Helvetica Neue', arial;">{{ object.short_description }}</p>
+
+
+{% if object.photos.first %} 
+<img src="{{request.scheme}}://{{request.get_host}}{{ object.photos.first.image.url }}" style="max-width: 100%; margin-bottom: 20px;"> 
+{% endif %}
+						
+<div style="float:left; width: 48%;padding: 1%;">
+<h5 style="font-family:'Helvetica Neue', arial;  text-transform: uppercase;font-size: 18px;margin-bottom: 0; margin-top: 0;">ХАРАКТЕРИСТИКИ</h5>
+<div style="padding: 1%;float: left;width: 100%;" >
+
+{% for char in object.get_characteristic %}
+<div style="border-bottom: 1px solid #d2d6d8;float: left;width: 100%;">
+<div style="font-family:'Helvetica Neue', arial;float:left; width: 50%;padding: 5.5px 0; font-size: 14px; color:#767676;">{{ char.characteristic|title }}</div>
+<div style="font-family:'Helvetica Neue', arial; font-weight:bold;float:left; width: 50%;padding: 5.5px 0; font-size: 14px;color:#000000; text-align: right;">{{ char.value }}</div>
+</div>
+{% endfor %}
+</div>
+</div>
+
+<div style="float:left; width: 48%;padding: 1%;">
+<div style="float: left; border: 1px solid #d7d7d7; padding: 2%;width: 96%;">
+<div style="float: left; width: 30%;">
+	<img style="max-width: 100%;" src="{{request.scheme}}://{{request.get_host}}{{ object.user.avatar.url_136x136 }}" alt="{{ object.name }}" >
+</div>
+<div style="float: left; width: 70%;">
+<p style="font-family:'Helvetica Neue', arial; margin: 0;padding-left: 10px; font-weight:bold;">{{ object.user.first_name }} {{ object.user.last_name }}</p>
+<p style="font-family:'Helvetica Neue', arial; margin: 0;padding-left: 10px">{{ object.user.position }}</p>
+
+{% if object.user.email %}
+<a href="mailto:{{ object.user.email }}" style="color: #ffa500; font-family:'Helvetica Neue', arial;margin-left: 10px;line-height: 30px; -webkit-text-size-adjust:none; text-decoration: underline;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/email/email.png" style="width: 20px;height: 15px;float: left;margin-top: 5px;padding-bottom: 10px;padding-left: 10px;" alt="point"> {{ object.user.email }}</a>
+{% endif %}
+										
+<a href="tel:{{ object.user.phone }}" style="color: #000000; font-family:'Helvetica Neue', arial;margin-left: 10px;line-height: 30px; -webkit-text-size-adjust:none; text-decoration: none;font-weight: bold;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/email/phone.png" style="width: 19px;height: 21px;float: left;margin-top: 5px;padding-bottom: 10px;padding-left: 10px;" alt="point"> {{ object.user.phone }}</a>
+
+{% if object.user.phone_2 %}
+<a href="tel:{{ object.user.phone_2 }}" style="color: #000000; font-family:'Helvetica Neue', arial;margin-left:10px;line-height: 30px; -webkit-text-size-adjust:none;    font-weight: bold;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/email/phone.png" style="width: 19px;height: 21px;float: left;margin-top: 5px;padding-bottom: 10px;padding-left: 10px;" alt="point"> {{ object.user.phone_2 }}</a>
+{% endif %}
+</div>
+</div>
+
+<div style="float: left;font-family: 'Helvetica Neue', arial;font-size: 14px;">
+										
+<h5 style="font-family:'Helvetica Neue', arial;  text-transform: uppercase; font-size: 18px;margin-bottom: 0;">ОПИСАНИЕ</h5>
+{{ object.description|safe }}
+
+
+{% if object.equipment %}
+<h5 style="font-family:'Helvetica Neue', arial;  text-transform: uppercase; font-size: 18px;margin-bottom: 0;">Комплектация</h5>
+
+{% for item in object.equipment.all %}
+<div style="font-family:'Helvetica Neue', arial; font-weight:bold;float:left; width: 100%;padding: 5.5px 0; font-size: 14px;color:#000000; text-align: right;">
+	{{ item }}</div>
+{% endfor %}
+{% endif %}
+</div>	
+</div>				
+
+<div style="width: 100%;height: 1px;clear: both"></div>
+{% if object.photos.all.exists %}
+{% if request.GET.print %}
+
+{% endif %}
+<div style="width:100%;">
+{% for photo in object.photos.all|slice:":4" %}
+{% if request.GET.print %}
+<div style="float: left; padding: 1% 0% 1% 0%;text-align: center; width: 49%;">
+{% endif %}
+<img src="{{request.scheme}}://{{request.get_host}}{{ photo.image.url_298x176 }}" style="max-width: 100%;">
+{% if request.GET.print %}
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endif %}
+
+
+
+<hr style="display: block;height: 1px;border: 0;border-top: 1px solid #000000;margin: 1em 0;padding: 0; width: 100%;">
+<div  style="width:100%; float: left;">
+<div style="width:50%; float: left; text-align: right; margin-top: 0px; font-family:'Helvetica Neue', arial; ">
+	<img style="width: 100%" src="{{request.scheme}}://{{request.get_host}}/static/img/mapprint.png" alt="Gross Auto на карте" >
+</div>
+<ul style="list-style:none;width:44%; float: left; text-align: left; margin-top: 0px; font-family:'Helvetica Neue', arial;padding-left: 30px">
+<li style="min-height: 30px;font-size: 14px;">
+        <img src="{{request.scheme}}://{{request.get_host}}/static/img/geo-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">Москва, 31 км МКАД, Востряковский проезд, д. 10Б, стр. 2</li>
+	<li style="min-height: 30px;font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/mail-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">adv@truck-used.ru</li>
+	<li style="min-height: 30px;    font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/phone-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">+7 (495) 120-60-01 в любое время</li>
+	<li style="min-height: 30px;font-size: 14px;"><img src="{{request.scheme}}://{{request.get_host}}/static/img/web-print-icon.jpg" style="width: 17px;height: 17px;float: left;padding-right: 5px;padding-bottom: 10px" alt="point">www.truck-used.ru</li>
+</ul>
+</div>

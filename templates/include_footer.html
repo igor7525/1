@@ -1,0 +1,68 @@
+{% load static %}
+
+<footer class="footer-inner">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="ondescpad col-lg-12">
+				<div class="logo-footer">
+					<!--<a href="/"><img src="{% static 'svg/logo-footer.svg' %}" alt=""></a>-->
+					<a href="/"><img src="{% static 'img/logo-footer.png' %}" alt=""></a>
+				</div>
+				<div class="block-footer">
+					<div class="left-footer">
+						<div class="top-footer">
+							<ul>
+								<li>
+									<a href="/about/">О компании</a>
+								</li>
+								<li>
+									<a href="{% url 'news-list' %}">Новости</a>
+								</li>
+								<li>
+									<a href="/leasing-credit/">Лизинг/Кредит</a>
+								</li>
+								<li>
+									<a href="/ransom/">Выкуп техники</a>
+								</li>
+								<li>
+									<a href="{% url 'contacts' %}">Контакты</a>
+								</li>
+								<li>
+									<a href="{% url 'catlog-list' SPECIAL_MODEL_SLUG %}">Cпецтехника</a>
+								</li>
+								<li>
+									<a href="{% url 'catlog-list' TRACTIVE_UNIT_MODEL_SLUG %}">Тягачи</a>
+								</li>
+								<li>
+									<a href="{% url 'catlog-list' TRAILER_MODEL_SLUG %}">Полуприцепы</a>
+								</li>
+								<li>
+									<a href="{% url 'catlog-list' TRUCK_MODEL_SLUG %}">Грузовики</a>
+								</li>
+							</ul>
+						</div>
+						<p>{{ config.SCHEDULE|safe }}</p>
+						<div class="copirait">© «Gross Auto», {% now "Y" %}. Все права защищены.</div>
+					</div>
+					<div class="right-nav">
+                        <div style="display: table-row;">
+                            <div class="item"><a href="{% url 'contacts' %}#mapmsk"><i class="marker"></i>{{ config.ADDRESS }}</a></div>
+                            <div class="item"><a href="{% url 'contacts' %}#mapspb"><i class="marker"></i>{{ config.ADDRESS_SPB }}</a></div>
+                        </div>
+                        <div style="display: table-row;">
+                            <div class="item lrg"><i class="phone"></i><noindex><a href="tel:+74951206001" rel="nofollow">{{ config.PHONE_2 }}</a></noindex></div>
+                            <div class="item lrg"><i class="phone"></i><noindex><a href="tel:+78124071523" rel="nofollow">{{ config.PHONE_SPB }}</a></noindex></div>
+                        </div>
+                        <div class="pict">
+                            <noindex><a href="tel:88005004323" class="tel-link" rel="nofollow">{{ config.PHONE }}</a></noindex>
+                        </div>
+						<div style="text-align: center;">
+							<i class="envelope"></i>
+							<a href="mailto:{{ config.EMAIL }}" class="email">{{ config.EMAIL }}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

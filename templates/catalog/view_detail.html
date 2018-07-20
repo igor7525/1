@@ -1,0 +1,381 @@
+{% extends "catalog/base.html" %}
+{% load static catalog %}
+{% block modal %}
+	{% include "include_modal_second.html" with form=form %}
+{% endblock %}
+
+{% block title %}{{ title|title }} {{ config.SITE_NAME }}{% endblock %}
+
+{% block breadboard %}
+<div class="bread-cover">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul>
+					<li>
+						<a href="/">GrossAuto</a>
+					</li>
+					<li>
+						<a href="{% url 'catlog-list' object.slug %}">{{ category_name|title }}</a>
+					</li>
+					<li>
+						<a href="{% url 'catlog-detail' object.slug object.id %}">{{ title|title }}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block section %}
+<div class="section-product">
+	<div class="top-product">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="back-link">
+						<a href="{% url 'catlog-list' object.slug %}">Вернуться к списку</a>
+					</div>
+					<div class="add-favirites">
+						<a href="#" onclick="return add_favorite(this)">Добавить страницу в избранное</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="slider-product">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="slider-auto">
+						<div class="bid-sl">
+							<div class="extra-wrapper">
+								{% if object.photos.all.exists %}
+								<img src="#" alt="">
+								{% else %}
+								<img src="{% static 'img/conponent/no-image.png' %}" alt="">
+								{% endif %}
+								<iframe src="#" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+						{% if object.photos.all.exists %}
+						<div class="carusel-auto">
+							<div class="owl-carousel-2 owl-product">
+								{% for photo in object.photos.all %}
+								<div class="item">
+									<img src="{{ photo.image.url_298x176 }}" data-img-big="{{ photo.image.url }}">
+									<a class="fancybox" href="{{ photo.image.url }}" data-fancybox-group="gallery"></a>
+								</div>
+								{% endfor %}
+								{% if object.video %}
+								<div class="item">
+									<div class="iframe" data-iframe='https://www.youtube.com/embed/{{ object.video }}'></div>
+								</div>
+								{% endif %}
+							</div>
+						</div>
+						{% endif %}
+						<h5>ХАРАКТЕРИСТИКИ</h5>
+						<table class="table-product">
+							<tbody>
+								{% for char in object.get_characteristic %}
+								<tr>
+									<td>{{ char.characteristic|capfirst }}</td>
+									<td>{{ char.value }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+					<div class="content-product">
+						<div class="name-product clone-product">
+							<div class="item">
+								<h1>{{ object.name }}</h1>
+								<p>{{ object.short_description }}</p>
+							</div>
+							<div class="item">
+								<div class="price">{{ object.price|currency:'ru_RU' }}</div>
+								{% if object.best_offer %}
+								<div class="special-product">Спецпредложения</div>
+								{% endif %}
+							</div>
+						</div>
+						<div class="data-user">
+							<div class="widht-data-user">
+								<div class="ava">
+									<img src="{{ object.user.avatar.url_136x136 }}" alt="">
+								</div>
+								<div class="info-for-user">
+									<div class="name-user">{{ object.user.first_name }} {{ object.user.last_name }}
+									</div>
+									<p>{{ object.user.position }}</p>
+									<div class="link-user">
+										{% if object.user.email %}
+										<div class="item mail">
+											<a href="mailto:{{ object.user.email }}">{{ object.user.email }}</a>
+										</div>
+										{% endif %}
+										<div class="item tel">
+											<div>
+												<a href="tel:{{ object.user.phone }}">{{ object.user.phone }}</a>
+											</div>
+											{% if object.user.phone_2 %}
+											<div>
+												<a href="tel:{{ object.user.phone_2 }}">{{ object.user.phone_2 }}</a>
+											</div>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="link-product link-product-clone">
+							<div class="item">
+								<a href="" class="print-button" data-type="print">
+									<span class="svg-product"><img src="{% static 'svg/prin-white.svg' %}" class="svg" alt=""></span>Распечатать / Сохранить
+								</a>
+							</div>
+							<div class="item">
+								<a href="javascript:void(0)" class="post-us" data-type="to-mail">
+									<span class="svg-product"><img src="{% static 'svg/evenlope-white.svg' %}" class="svg" alt=""></span>Отправить на почту
+								</a>
+							</div>
+							<div class="item">
+								<a class="write-us" data-type="watch"  href="javascript:void(0)">
+									<span class="svg-product"><img src="{% static 'svg/check-white.svg' %}" class="svg" alt=""></span>Записаться на просмотр
+								</a>
+							</div>
+							<div class="item">
+								<a class="write-us" data-type="credit-leasing" href="javascript:void(0)">
+									<span class="svg-product"><img src="{% static 'svg/list-white.svg' %}" class="svg" alt=""></span>Лизинг / Кредит
+								</a>
+							</div>
+						</div>
+						<hr>
+						<h5>ОПИСАНИЕ</h5>
+						<div>{{ object.description|safe }}</div>
+						<hr>
+						{% if object.equipment.count %}
+						<h5>Комплектация</h5>
+						<ul class="list-check">
+							{% for item in object.equipment.all %}
+							<li>{{ item }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+</div>
+
+{% if object.photos.all.exists %}
+<div class="printgallery">
+{% for photo in object.photos.all %}
+<div class="imga"><img src="{{ photo.image.url_298x176 }}"/></div>
+{% endfor %}
+</div>
+{% endif %}
+<div class="printadress">
+<h5>Контакты</h5>
+<p>{{ config.ADDRESS }}</p>
+<p>{{ config.EMAIL }}</p>
+<p>{{ config.PHONE }}</p>
+
+<h5>График работы</h5>
+<p>{{ config.SCHEDULE|safe }}</p>
+<hr style="display: block;height: 1px;border: 0;border-top: 1px solid #000000;margin: 1em 0;padding: 0; width: 100%;">
+</div>
+<div class="mapprint">
+<img src="{{request.scheme}}://{{request.get_host}}/static/img/mapprint.png" alt="Gross Auto на карте" >
+</div>
+{% endblock %}
+
+{% block additional_section %}
+{% include "catalog/include_request.html" %}
+
+{% if object.related_same.exists %}
+<div class="related-offers">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="and">Или выберите</div>
+				<div class="outline-owl">
+					<div class="title-owl">
+						<span>Похожие предложения</span>
+					</div>
+					<ul class="ul-best-offers owl-carousel-2 owl-offers">
+						{% for item in object.related_same.all %}
+						<li class="item">
+							<div class="img-offers">
+								<a href="{% url 'catlog-detail' item.slug item.id %}">
+									{% if item.photos.exists %}
+									<img src="{{ item.photos.all.first.image.url_298x176 }}" alt="">
+									{% else %}
+									<img src="{% static 'img/conponent/no-image.298x176.png' %}" alt="">
+									{% endif %}
+								</a>
+							</div>
+							<div class="description-offers">
+								<a href="{% url 'catlog-detail' item.slug item.id %}">{{ item.name }}</a>
+								<table>
+									<tbody>
+										<tr>
+											<td>Тип техники</td>
+											<td>{{ item.char_vehicle_type }}</td>
+										</tr>
+										{% if item.char_year_of_issue %}
+										<tr>
+											<td>Год выпуска</td>
+											<td>{{ item.char_year_of_issue }}</td>
+										</tr>
+										{% endif %}
+										{% if item.char_mileage %}
+										<tr>
+											<td>Пробег, км</td>
+											<td>{{ item.char_mileage }}</td>
+										</tr>
+										{% endif %}
+									</tbody>
+								</table>
+								<div class="price">{{ item.price|currency:'ru_RU' }}</div>
+							</div>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% if object.related.all.exists %}
+<div class="related-offers">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="outline-owl">
+					<div class="title-owl">
+						<span>С этим также покупают</span>
+					</div>
+					<ul class="ul-best-offers owl-carousel-2 owl-offers">
+						{% for item in object.related.all %}
+						<li class="item">
+							<div class="img-offers">
+								<a href="{% url 'catlog-detail' item.slug item.id %}">
+									{% if item.photos.exists %}
+									<img src="{{ item.photos.first.image.url_298x176 }}" alt="">
+									{% else %}
+									<img src="{% static 'img/conponent/no-image.298x176.png' %}" alt="">
+									{% endif %}
+								</a>
+							</div>
+							<div class="description-offers">
+								<a href="{% url 'catlog-detail' item.slug item.id %}">{{ item.name }}</a>
+								<table>
+									<tbody>
+										<tr>
+											<td>Тип техники</td>
+											<td>{{ item.char_vehicle_type }}</td>
+										</tr>
+										{% if item.char_year_of_issue %}
+										<tr>
+											<td>Год выпуска</td>
+											<td>{{ item.char_year_of_issue }}</td>
+										</tr>
+										{% endif %}
+										{% if item.char_mileage %}
+										<tr>
+											<td>Пробег, км</td>
+											<td>{{ item.char_mileage }}</td>
+										</tr>
+										{% endif %}
+									</tbody>
+								</table>
+								<div class="price">{{ item.price|currency:'ru_RU' }}</div>
+							</div>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+<div class="mapprint">
+	<div class="col-xs-12" style="height: 200px">
+		<hr>
+		<div class="col-xs-6">
+			<img src="{{request.scheme}}://{{request.get_host}}/static/img/mapprint.png" alt="Gross Auto на карте" >
+		</div>
+		<div class="col-xs-6">
+			<ul class="concact-ul">
+				<li><i class="marker-o"></i>{{ config.ADDRESS }}</li>
+				<li>
+					<i class="envelope"></i>
+					<a class="email" href="email:{{ config.EMAIL }}">{{ config.EMAIL }}</a>
+				</li>
+				<li>
+					<i class="phpne-o"></i>
+					<a href="{{ config.PHONE }}">{{ config.PHONE }}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+
+{% block custom_js %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        var detail_view_form = $('form.ajax_contact_form_in_detail');
+        var pform = $('form#postform');
+
+        $('.print-button').on('click', function(e) {
+            e.preventDefault();
+            var new_wnd = window.open(location.href+"?print=1", "subWindow", "scrollbars=yes");
+            new_wnd.document.close();
+            new_wnd.focus();
+            setTimeout(function() {
+                new_wnd.print();
+//                new_wnd.close();
+            }, 100);
+        });
+
+        pform.on("submit", function(e){
+            e.preventDefault();
+            $.post("", pform.serialize(), function(){
+                pform.hide();
+                pform.parent().append("<h4 class='text-success text-center'>Коммерческое предложение отправлено Вам на почту!</h4>")
+
+            });
+            return false
+        });
+
+        detail_view_form.ajaxForms({
+            'url': '/feedback/ajax' + window.location.pathname,
+            'onstart': function (event) {
+                if (detail_view_form.find('.accept_ppd').prop("checked") == false) {
+                    detail_view_form.find(".accept_ppd").siblings("div").effect("pulsate", {}, 800);
+
+                    alert("Вы не подтвердили своё согласие с обработкой персональных данных!");
+                }
+
+                detail_view_form.find("[name='csrfmiddlewaretoken']").val(getCookie('csrftoken'));
+            },
+            'onsuccess': function () {
+                detail_view_form.hide();
+                detail_view_form.parent().append("<h5 class='text-success text-center'>Ваша заявка принята!</h5>")
+            }
+        });
+    });
+</script>
+{% endblock %}

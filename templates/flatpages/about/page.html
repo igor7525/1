@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}{{ flatpage.title }} {{ config.SITE_NAME }}{% endblock %}
+
+{% block breadboard %}
+{% load flatpages %}
+
+{% get_flatpages '/about/' as about_pages %}
+
+<div class="bread-cover">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul>
+					<li>
+						<a href="/">GrossAuto</a>
+					</li>
+					{% for page in about_pages %}
+					{% if forloop.first %}
+					<li>
+						<a href="{{ page.url }}">{{ page.title|title }}</a>
+					</li>
+					{% else %}
+					
+					{% if page.url == request.path %}
+					<li>
+						<a href="{{ page.url }}">{{ page.title|title }}</a>
+					</li>
+					{% endif %}
+
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block section %}
+{% load flatpages %}
+
+{% get_flatpages '/about/' as about_pages %}
+
+<section class="tabs-section">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="swich-left">
+					<div class="slect-swich">
+						<div class="select-sw">Выберите раздел</div>
+					</div>
+					<ul class="swich-ul">
+						{% for page in about_pages %}
+						<li {% if page.url == request.path %}class="active"{% endif %}><a href="{{ page.url }}">{{ page.title|upper }}</a></li>
+						{% endfor %}
+                        <li {% if 'gallery' in request.path %}class="active"{% endif %}><a href="{% url 'view_gallery' %}">Наши клиенты</a></li>
+					</ul>
+				</div>
+				<div class="content-tabs editor-styles">
+                    {{ flatpage.content }}
+                    {% block sp_content %}{% endblock %}
+                </div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

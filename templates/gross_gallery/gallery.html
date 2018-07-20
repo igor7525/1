@@ -1,0 +1,43 @@
+{% extends "flatpages/about/page.html" %}
+{% load static %}
+{% load thumbnail %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/plugins/prettyPhoto.css" %}" />
+{% endblock %}
+
+{% block custom_js %}
+<script src="{% static 'js/plugins/jquery.prettyPhoto.js' %}"></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("a[rel^='prettyPhoto']").prettyPhoto(
+                {
+                    show_title: false,
+                    theme: 'facebook',
+                    overlay_gallery: false,
+                    counter_separator_label: " из ",
+                    social_tools: ''
+                });
+    });
+</script>
+{% endblock %}
+
+{% block title %}Наши клиенты {{ config.SITE_NAME }}{% endblock %}
+
+{% block sp_content %}
+
+<div class="note">
+    <h1>Наши клиенты</h1>
+
+    {% for photo in photos %}
+        <a href="{{ photo.image.url }}" rel="prettyPhoto[pp_gal]" title="{{ photo.description }}"><img src="{{ photo.middle_photo }}" alt="{{ photo.get_short_description }}" style="margin: 5px;"/></a>
+    {% endfor %}
+
+    {% if photos.has_next %}
+        <div class="link-button" style="text-align: center; margin-top: 20px;">
+            <a href="?page={{ photos.next_page_number }}">Показать ещё</a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

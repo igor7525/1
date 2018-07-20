@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{ flatpage.title }} {{ config.SITE_NAME }}{% endblock %}
+
+{% block breadboard %}
+<div class="bread-cover">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul>
+					<li>
+						<a href="/">GrossAuto</a>
+					</li>
+					<li>
+						<a href="{{ flatpage.url }}">{{ flatpage.title|title }}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block section %}
+<section class="tabs-section">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="swich-left"></div>
+				<div class="content-tabs editor-styles">{{ flatpage.content }}</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,797 @@
+{% extends "base.html" %}
+
+{% load static catalog %}
+
+{% block metatag %}
+    <meta name="yandex-verification" content="f2b0df7d0c7c0806" />
+{% endblock %}
+
+{% block title %}Главная {{ config.SITE_NAME }}{% endblock %}
+
+{% block style %}
+<style type="text/css">
+	nav {
+		border-bottom: none;
+	}
+	.about-section {
+		margin-top: 48px;
+	}
+	footer.footer-inner {
+		border-top: none;
+	}
+	
+
+.vyk h3 {
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    border: none;
+    color: #000;
+    margin-bottom: 40px;
+}
+
+
+.testimonials{width:100%;overflow:hidden;padding:30px 0;position:relative}.testimonials.loading:before{content:'';position:absolute;top:50%;left:50%;width:30px;height:30px;margin-top:-60px;margin-left:-15px;background:url(https://cdn.level.travel/assets/25-7afb7a03822e3d9c8991321e680581cca1ece4f520ba13bbc13b598ca601feed.gif);background-size:cover}.testimonials.load_more:before{content:'';position:absolute;top:50%;right:26px;width:37px;height:37px;margin-top:-47px;background:#FFF;z-index:2;border-radius:100%}.testimonials.load_more:after{content:'';position:absolute;top:50%;width:25px;height:25px;margin-top:-41px;right:32px;background:url(https://cdn.level.travel/assets/25-7afb7a03822e3d9c8991321e680581cca1ece4f520ba13bbc13b598ca601feed.gif);background-size:cover;z-index:22}.testimonials_scroller{white-space:nowrap;overflow-x:scroll;padding-bottom:20px;margin-bottom:-20px}.testimonials_scroller.stopped{-webkit-transition:all 300ms cubic-bezier(0.1, 1.01, 1, 1);-moz-transition:all 300ms cubic-bezier(0.1, 1.01, 1, 1);transition:all 300ms cubic-bezier(0.1, 1.01, 1, 1)}.testimonials_scroller_wrap{overflow:hidden}.faded .testimonial_comment_text{position:relative;overflow:hidden}.faded .testimonial_comment_text:before{position:absolute;bottom:0px;right:0px;content:'Читать далее';font-size:13px;border-bottom:1px dashed;background:#FFF;cursor:pointer}.faded .testimonial_comment_text:after{position:absolute;bottom:0px;right:78px;width:20px;height:16px;content:'';background:-webkit-gradient(linear, left top, right top, from(rgba(84,84,84,0)), color-stop(70%, #fff));background:-webkit-linear-gradient(left, rgba(84,84,84,0) 0%, #fff 70%);background:-moz-linear-gradient(left, rgba(84,84,84,0) 0%, #fff 70%);background:linear-gradient(to right, rgba(84,84,84,0) 0%, #fff 70%)}.testimonials_list{height:420px;white-space:normal;padding:0 0px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;position:relative;font-size:0}.testimonials_list .testimonials_item{width:400px;position:absolute}.testimonials_item{background:#FFF;overflow:hidden;border-radius:4px;display:inline-block;vertical-align:top;margin:0 10px}.testimonials_item.testimonial_item-small{height:180px}.testimonials_item.testimonial_item-small .testimonial_comment_text{height:33px}.testimonials_item.testimonial_item-small.has_answer .testimonial_comment_text{height:15px}.testimonials_item.testimonial_item-small.has_answer .testimonial_comment{margin-bottom:0px;height:-moz-calc(100% - 118px);height:calc(100% - 118px)}.testimonials_item.testimonial_item-medium{height:220px}.testimonials_item.testimonial_item-medium .testimonial_comment{height:-moz-calc(100% - 118px);height:calc(100% - 118px);margin-bottom:0px}.testimonials_item.testimonial_item-medium .testimonial_comment_text{height:81px}.testimonials_item.testimonial_item-medium.has_answer .testimonial_comment_text{height:47px}.testimonials_item.testimonial_item-medium.has_answer .testimonial_comment{margin-bottom:0px;height:-moz-calc(100% - 118px);height:calc(100% - 118px)}.testimonials_item.testimonial_item-big{height:420px;overflow:hidden}.testimonials_item.testimonial_item-big .testimonial_comment_text{height:271px}.testimonials_item.testimonial_item-big.has_answer .testimonial_comment_text{height:256px}.testimonials_item.testimonial_item-big.has_answer .testimonial_comment{margin-bottom:0px;height:-moz-calc(100% - 118px);height:calc(100% - 118px);-webkit-transition:height cubic-bezier(0.86, 0.23, 0, 0.86);-moz-transition:height cubic-bezier(0.86, 0.23, 0, 0.86);transition:height cubic-bezier(0.86, 0.23, 0, 0.86)}.testimonial_full_hider{text-align:center;margin-top:8px;display:none}.testimonial_full_hider .testimonial_hider_label{border-bottom:1px dashed;display:inline-block;margin-bottom:10px;cursor:pointer}.testimonial_item-small+.testimonial_item-medium{position:absolute;bottom:0}.testimonial_item-medium+.testimonial_item-small{position:absolute;bottom:0}.testimonials_item.full_text{overflow-y:auto}.testimonials_item.full_text .testimonial_item_head{height:0}.testimonials_item.full_text .testimonial_comment_text,.testimonials_item.full_text .testimonial_comment{height:auto !important}.testimonials_item.full_text .testimonial_comment_title{white-space:normal}.testimonials_item.full_text .testimonial_comment_text:after{display:none}.testimonials_item.full_text .testimonial_answer_label{margin-top:12px;background:#BFBFBF}.testimonials_item.full_text .testimonial_answer_text{display:block;padding-bottom:10px;border-color:#BFBFBF}.testimonials_item.full_text .comment_text{height:auto !important}.testimonials_item.full_text .testimonial_rating{display:none}.testimonials_item.full_text .testimonial_comment_text{position:static}.testimonials_item.full_text .testimonial_full_hider{display:block}.testimonials_item.full_text .testimonial_comment_text:before{display:none}.testimonial_head_avatar,.testimonial_head_label,.testimonial_head_date{display:inline-block;vertical-align:middle}.testimonial_head_avatar{width:50px;height:50px;border-right:5px solid #EDEFED;border-bottom:5px solid #EDEFED;border-bottom-right-radius:13px;overflow:hidden}.testimonial_head_avatar img{width:100%}.testimonial_item_head,.testimonial_rating{font-size:0}.testimonial_item_head{height:55px;overflow:hidden;-webkit-transition:150ms height ease;-moz-transition:150ms height ease;transition:150ms height ease}.testimonial_head_label{width:-moz-calc(100% - 120px);width:calc(100% - 120px);padding-left:10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.testimonial_head_label .testimonial_head_name{font-size:15px;color:#4A4A4A}.testimonial_head_label .testimonial_head_info{font-size:12px;color:#9B9B9B}.testimonial_head_date{font-size:11px;width:65px;text-align:right;padding-right:10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;color:#9B9B9B}.testimonial_comment{font-size:13px;color:#737373;margin:7px 15px;height:-moz-calc(100% - 126px);height:calc(100% - 126px)}.testimonial_comment .testimonial_comment_title{font-size:15px;color:#000;margin-bottom:3px;margin-top:5px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.testimonial_comment .comment_text{-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.testimonial_comment .testimonial_answer_label{background:#3FA9F5;display:inline-block;color:#FFF;font-size:13px;line-height:20px;margin-top:6px;padding:0 4px;cursor:pointer}.testimonial_comment .testimonial_answer_text{border-top:2px solid #3FA9F5;padding-top:5px;display:none}.testimonial_comment.clone{top:-99999px !important;left:-99999px !important;height:auto !important;width:100%;position:absolute !important}.testimonial_comment.clone .testimonial_comment_text{height:auto !important}.testimonial_rating_mark,.testimonial_rating_stars,.testimonial_rating_voting{display:inline-block;vertical-align:middle}.testimonial_rating{padding:10px}.testimonial_rating_mark{width:43px;line-height:36px;background:#39C747;text-align:center;font-size:24px;color:#FFF;border-radius:4px}.testimonial_rating_stars{width:-moz-calc(100% - 143px);width:calc(100% - 143px);padding-left:15px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.testimonial_rating_stars .star_item{width:11px;height:11px;display:inline-block;vertical-align:middle;background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item-16c4f2240995420d5d95f23c118bb3f5edb621dd8ee5a059b48f5f1d79ad77b5.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .star_item{background-image:url(https://cdn.level.travel/assets/testimonials/star_item@2x-66eb918c1a01596c9f0d1e5a60b6b48de4f9a7cb373c324231156572b51381e6.png);background-size:11px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-1 .star_item:nth-child(1){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-1 .star_item:nth-child(1){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-2 .star_item:nth-child(1){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-2 .star_item:nth-child(1){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-2 .star_item:nth-child(2){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-2 .star_item:nth-child(2){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-3 .star_item:nth-child(1){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-3 .star_item:nth-child(1){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-3 .star_item:nth-child(2){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-3 .star_item:nth-child(2){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-3 .star_item:nth-child(3){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-3 .star_item:nth-child(3){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-4 .star_item:nth-child(1){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-4 .star_item:nth-child(1){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-4 .star_item:nth-child(2){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-4 .star_item:nth-child(2){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-4 .star_item:nth-child(3){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-4 .star_item:nth-child(3){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-4 .star_item:nth-child(4){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-4 .star_item:nth-child(4){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:first-child{background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:first-child{background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:nth-child(2){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:nth-child(2){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:nth-child(3){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:nth-child(3){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:nth-child(4){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:nth-child(4){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:nth-child(5){background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active-dbdd4258bd3905ca5ceb429f41f3fd4c764cd80957f31e938c59a1bbaf1b4017.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonial_rating_stars .testimonial_stars_item.testimonial_stars_item-5 .star_item:nth-child(5){background-image:url(https://cdn.level.travel/assets/testimonials/star_item_active@2x-c06fcf29f499eba86eaf624da9bd57c6e082e5cd225fcf120d9d8aac15a15960.png);background-size:12px 10px}}.testimonial_rating_stars .star_label{font-size:11px;color:#929292;vertical-align:middle;display:inline-block;margin-left:5px}.testimonial_voting_icons{margin:6px 3px 0}.testimonial_rating_voting{width:100px}.testimonial_rating_voting .testimonial_voting_label{font-size:10px;text-align:center;color:#929292}.testimonial_rating_voting .voting_icon,.testimonial_rating_voting .voting_icon-pic,.testimonial_rating_voting .voting_icon_label{display:inline-block;vertical-align:middle}.testimonial_rating_voting .voting_icon+.voting_icon{margin-left:14px}.testimonial_rating_voting .voting_icon{cursor:pointer;font-size:15px;color:#CDCDCD}.testimonial_rating_voting .voting_icon .voting_icon_label{font-size:12px;padding:0 6px}.testimonial_rating_voting .voting_icon.voting_icon-like.voted,.testimonial_rating_voting .voting_icon.voting_icon-like:hover{color:#39C747}.testimonial_rating_voting .voting_icon.voting_icon-dislike.voted,.testimonial_rating_voting .voting_icon.voting_icon-dislike:hover{color:#EE8484}.testimonials_buttons{text-align:center;margin-top:30px}.testimonials_buttons .testimonials_button-arrow{cursor:pointer;width:30px;height:30px;display:inline-block;vertical-align:middle;opacity:1;position:relative}.testimonials_buttons .testimonials_button-arrow.disabled{cursor:default;opacity:.3}.testimonials_buttons .testimonials_button-left:before{top:50%;left:50%;width:8px;content:'';height:13px;margin-top:-7px;margin-left:-6px;position:absolute;background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/testimonials_button-left-4b4715605b28509a00017a1dd471e8d6430b92e159ef6c583279af72b67b7966.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonials_buttons .testimonials_button-left:before{background-image:url(https://cdn.level.travel/assets/testimonials/testimonials_button-left@2x-9ebf186260959a198e4b93ef5aac36a8678a860f17a3a4da774bd1a03fc64c61.png);background-size:8px 13px}}.testimonials_buttons .testimonials_button-right:before{top:50%;left:50%;width:8px;content:'';height:13px;margin-top:-7px;margin-left:-6px;position:absolute;background:no-repeat;background-image:url(https://cdn.level.travel/assets/testimonials/testimonials_button-right-b6f12e4225290c4b87c6302a7111ee8d0960bcc59792c076c5422a9e1ff4f46b.png)}@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx){.testimonials_buttons .testimonials_button-right:before{background-image:url(https://cdn.level.travel/assets/testimonials/testimonials_button-right@2x-127171855252227c77547b6f6a7f114788caa5c4dcd612d2d0ec6bca70d5e3b1.png);background-size:7px 13px}}.testimonials_buttons .testimonials_button-other{color:#737373;margin:0 20px;font-size:14px;padding:0 13px;line-height:28px;border-radius:4px;display:inline-block;text-decoration:none;vertical-align:middle;border:1px solid #737373}
+
+.testimonial_head_avatar {
+    width: 250px;
+    height: 150px;
+    border-right: 5px solid #EDEFED;
+    border-bottom: 5px solid #EDEFED;
+    border-bottom-right-radius: 13px;
+    overflow: hidden;
+}
+.testimonial_item_head {
+    height: 180px;
+    overflow: hidden;
+    -webkit-transition: 150ms height ease;
+    -moz-transition: 150ms height ease;
+    transition: 150ms height ease;
+}
+      
+.testimonial_head_label {
+    margin-top: -150px;
+    width: 400px;
+    padding-left: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}  
+
+.testimonials_item.testimonial_item-big.has_answer .testimonial_comment {
+    margin-bottom: 0px;
+    height: 160px;
+    -webkit-transition: height cubic-bezier(0.86, 0.23, 0, 0.86);
+    -moz-transition: height cubic-bezier(0.86, 0.23, 0, 0.86);
+    transition: height cubic-bezier(0.86, 0.23, 0, 0.86);
+}
+.testimonial_comment .comment_text {
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.testimonial_head_label .testimonial_head_name {
+    font-size: 18px;
+    color: #4A4A4A;
+}
+.testimonial_head_date {
+    font-size: 14px;
+    width: 65px;
+    text-align: right;
+    padding-right: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #9B9B9B;
+}
+
+.testimonial_rating_stars .star_label {
+    font-size: 13px;
+    color: #929292;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+.testimonial_rating_mark {
+    width: 50px;
+    line-height: 40px;
+    background: #39C747;
+    text-align: center;
+    font-size: 30px;
+    color: #FFF;
+    border-radius: 4px;
+}
+
+
+.testimonial_rating {
+    padding: 10px;
+    margin-left: 250px;
+    margin-top: -165px;
+}
+.testimonials_item.testimonial_item-big.has_answer .testimonial_comment {
+    margin-bottom: 0px;
+    margin-left: 260px;
+    margin-top: -10px;
+    height: 160px;
+    width: 400px;
+    -webkit-transition: height cubic-bezier(0.86, 0.23, 0, 0.86);
+    -moz-transition: height cubic-bezier(0.86, 0.23, 0, 0.86);
+    transition: height cubic-bezier(0.86, 0.23, 0, 0.86);
+}
+.testimonials_item.testimonial_item-big {
+    height: 180px;
+    overflow: hidden;
+}
+.testimonial_head_avatar {
+    width: 250px;
+    height: 170px;
+    border-right: 5px solid #EDEFED;
+    border-bottom: 5px solid #EDEFED;
+    border-bottom-right-radius: 13px;
+    overflow: hidden;
+}
+
+#lform
+{
+width:1050px;
+height:200px;
+position:relative;
+margin:0 auto;
+}
+
+input
+{
+display:block;
+margin:0px auto 15px;
+border-radius:5px;
+background: #333333;
+width:85%;
+padding:12px 20px 12px 10px;
+border:none;
+color:#929999;                       
+box-shadow:inset 0px 1px 5px #272727;
+font-size:0.8em;
+-webkit-transition:0.5s ease;
+-moz-transition:0.5s ease;
+-o-transition:0.5s ease;
+-ms-transition:0.5s ease;
+transition:0.5s ease; 
+}
+
+input:focus
+{
+-webkit-transition:0.5s ease;
+-moz-transition:0.5s ease;
+-o-transition:0.5s ease;
+-ms-transition:0.5s ease;
+transition:0.5s ease;  
+box-shadow: 0px 0px 5px 1px #161718;
+}
+
+#supbut
+{
+background: #ff5f32;
+border-radius:50%;
+border:10px solid #222526;
+font-size:0.9em;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+width:85px;
+height:85px;
+position:absolute;
+right: -42px;
+top: 54px;
+text-align:center;
+-webkit-transition:0.5s ease;
+-moz-transition:0.5s ease;
+-o-transition:0.5s ease;
+-ms-transition:0.5s ease;
+transition:0.5s ease;
+}
+
+#supbut:hover
+{
+background:#222526;
+border-color:#ff5f32;
+-webkit-transition:0.5s ease;
+-moz-transition:0.5s ease;
+-o-transition:0.5s ease;
+-ms-transition:0.5s ease;
+transition:0.5s ease;
+}
+
+#supbut i
+{
+font-size:20px;
+-webkit-transition:0.5s ease;
+-moz-transition:0.5s ease;
+-o-transition:0.5s ease;
+-ms-transition:0.5s ease;
+transition:0.5s ease;
+}
+
+#supbut:hover i
+{
+color:#ff5f32;
+-webkit-transition:0.5s ease;
+-moz-transition:0.5s ease;
+-o-transition:0.5s ease;
+-ms-transition:0.5s ease;
+transition:0.5s ease;
+}
+  
+
+
+:-moz-placeholder { /* Firefox 18- */
+color:#929999; 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+color:#929999;  
+}
+
+:-ms-input-placeholder {  
+color:#929999; 
+}
+
+h1
+{
+text-align:center;
+color:#fff;
+font-size:13px;
+padding:12px 0px;
+}
+
+#note
+{
+color:#fff;
+font-size: 1em;
+text-align:center;
+padding-bottom:5px;
+}
+
+#imga
+{
+text-align:center;
+float:left;
+background: #ff5f32;
+padding:10px 10px 20px 10px;
+width:400px;
+height:200px; 
+border-radius:3px;
+cursor:pointer;
+box-shadow: 0px 0px 10px 2px #161718; 
+margin-right:10px;
+-webkit-transition:0.5s ease;
+-moz-transition:0.5s ease;
+-o-transition:0.5s ease;
+-ms-transition:0.5s ease;
+transition:0.5s ease;
+}
+
+#imga:hover
+{
+box-shadow: 0px 0px 0px 0px #161718;
+-webkit-transition:0.5s ease;
+-moz-transition:0.5s ease;
+-o-transition:0.5s ease;
+-ms-transition:0.5s ease;
+transition:0.5s ease;
+}
+
+
+#mainlogin
+{
+float:left;
+width:900px;
+height:200px;
+padding:10px 15px;
+position:relative;
+background:#555555;
+border-radius:3px;
+}
+#mainlogin1
+{
+float:left;
+width:590px;
+height:200px;
+padding:10px 15px;
+position:relative;
+background:#555555;
+border-radius:3px;
+}
+
+#connect
+{
+font-weight: bold;
+color: #fff;
+font-size: 13px;
+text-align: center;
+
+}
+
+
+ul.ul-benefitbl {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+ul.ul-benefitbl li {
+    float: left;
+    width: 31%;
+    min-height: 230px;
+    border: 1px solid #000;
+    padding: 10px 15px 10px 15px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 30px;
+    margin-right: 10px;
+}
+
+.container1{overflow:hidden;width:800px}
+.box1{white-space:nowrap}
+.box1 div{width:380px;display:inline-block;border:0px solid black}
+
+.container2{overflow:hidden;width:800px}
+.box2{white-space:nowrap}
+.box2 div{width:260px;display:inline-block;border:0px solid black}
+</style>
+{% endblock style %}
+
+{% block header %}
+{% include "include_header.html" %}
+{% endblock %}
+
+{% block section %}
+
+
+<section class="about-section">
+
+				{% if best_offer|length > 0 %}
+				<section class="best-offers" >
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-12">
+								<h3 style="text-align: center;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    color: #000;
+    margin-bottom: 40px;
+}">Лучшие предложения</h3>
+                              <div class="owl-carousel-2 owl-bestoffers">
+								<!--<ul class="ul-best-offers">-->
+									{% for item in best_offer|dictsort:'name' %}
+									  {% if item.slug != "SPECIAL_MODEL_SLUG" %}
+                                 <div class="item bestoffers"> 
+										<div class="img-offers">
+											<a href="{% url 'catlog-detail' item.slug item.id %}">
+											{% if item.photos.exists %}
+											<img src="{{ item.photos.all.first.image.url_298x176 }}" alt="">
+											{% else %}
+											<img src="{% static 'img/conponent/no-image.298x176.png' %}" alt="">
+											{% endif %}
+											</a>
+										</div>
+										<div class="description-offers">
+											<a href="{% url 'catlog-detail' item.slug item.id %}">{{ item.name }}</a>
+											<div class="tablebestoffers"><table>
+												<tbody>
+													<tr>
+														<td>Тип техники</td>
+														<td>{{ item.char_vehicle_type }}</td>
+													</tr>
+													<tr>
+														<td>Год выпуска</td>
+														<td>{{ item.char_year_of_issue }}</td>
+													</tr>
+													{% if item.char_mileage %}
+													<tr>
+														<td>Пробег, км</td>
+														<td>{{ item.char_mileage }}</td>
+													</tr>
+													{% endif %}
+												</tbody>
+											</table></div>
+											<div class="price">{{ item.price|currency:'ru_RU' }}</div>
+										</div>
+									</div>
+										{% endif %}
+									{% endfor %}
+								<!--</ul>-->
+							</div></div>
+						</div>
+					</div>
+				</section>
+				{% endif %}
+
+								{% if best_offer|length > 0 %}
+				<section class="best-offers" style=" background: url(../static/img/conponent/bg-benefist.jpg) 50% 50% no-repeat;">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-12">
+								<h3 style="text-align: center;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    margin-bottom: 40px;
+}">Новые поступления</h3>
+                              <div class="owl-carousel-2 owl-bestoffers">
+								<!--<ul class="ul-best-offers">-->
+									{% for item in best_offer|dictsort:'name' %}
+									
+                                 <div class="item bestoffers2"> 
+										<div class="img-offers">
+											<a href="{% url 'catlog-detail' item.slug item.id %}">
+											{% if item.photos.exists %}
+											<img src="{{ item.photos.all.first.image.url_298x176 }}" alt="">
+											{% else %}
+											<img src="{% static 'img/conponent/no-image.298x176.png' %}" alt="">
+											{% endif %}
+											</a>
+										</div>
+										<div class="description-offers">
+											<a href="{% url 'catlog-detail' item.slug item.id %}">{{ item.name }}</a>
+											<div class="tablebestoffers"><table>
+												<tbody>
+													<tr>
+														<td>Тип техники</td>
+														<td>{{ item.char_vehicle_type }}</td>
+													</tr>
+													<tr>
+														<td>Год выпуска</td>
+														<td>{{ item.char_year_of_issue }}</td>
+													</tr>
+													{% if item.char_mileage %}
+													<tr>
+														<td>Пробег, км</td>
+														<td>{{ item.char_mileage }}</td>
+													</tr>
+													{% endif %}
+												</tbody>
+											</table></div>
+											<div class="price">{{ item.price|currency:'ru_RU' }}</div>
+										</div>
+									</div>
+                                  
+									{% endfor %}
+								<!--</ul>-->
+							</div></div>
+						</div>
+					</div>
+				</section>
+				{% endif %}
+				
+								{% if best_offer|length > 0 %}
+				<section class="best-offers">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-12">
+								<h3 style="text-align: center;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    color: #000;
+    margin-bottom: 40px;
+}">Седельные тягачи</h3>
+                              <div class="owl-carousel-2 owl-bestoffers">
+								<!--<ul class="ul-best-offers">-->
+									{% for item in best_offer|dictsort:'name' %}
+									
+                                 <div class="item bestoffers"> 
+										<div class="img-offers">
+											<a href="{% url 'catlog-detail' item.slug item.id %}">
+											{% if item.photos.exists %}
+											<img src="{{ item.photos.all.first.image.url_298x176 }}" alt="">
+											{% else %}
+											<img src="{% static 'img/conponent/no-image.298x176.png' %}" alt="">
+											{% endif %}
+											</a>
+										</div>
+										<div class="description-offers">
+											<a href="{% url 'catlog-detail' item.slug item.id %}">{{ item.name }}</a>
+											<div class="tablebestoffers"><table>
+												<tbody>
+													<tr>
+														<td>Тип техники</td>
+														<td>{{ item.char_vehicle_type }}</td>
+													</tr>
+													<tr>
+														<td>Год выпуска</td>
+														<td>{{ item.char_year_of_issue }}</td>
+													</tr>
+													{% if item.char_mileage %}
+													<tr>
+														<td>Пробег, км</td>
+														<td>{{ item.char_mileage }}</td>
+													</tr>
+													{% endif %}
+												</tbody>
+											</table></div>
+											<div class="price">{{ item.price|currency:'ru_RU' }}</div>
+										</div>
+									</div>
+                                  
+									{% endfor %}
+								<!--</ul>-->
+							</div></div>
+						</div>
+					</div>
+				</section>
+				{% endif %}
+				
+				{% if best_offer|length > 0 %}
+				<section class="best-offers" style=" background: url(../static/img/conponent/bg-benefist.jpg) 50% 50% no-repeat;">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg-12">
+								<h3 style="text-align: center;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    margin-bottom: 40px;
+}">Полуприцепы</h3>
+                              <div class="owl-carousel-2 owl-bestoffers">
+								<!--<ul class="ul-best-offers">-->
+									{% for item in best_offer|dictsort:'name' %}
+									
+                                 <div class="item bestoffers2"> 
+										<div class="img-offers">
+											<a href="{% url 'catlog-detail' item.slug item.id %}">
+											{% if item.photos.exists %}
+											<img src="{{ item.photos.all.first.image.url_298x176 }}" alt="">
+											{% else %}
+											<img src="{% static 'img/conponent/no-image.298x176.png' %}" alt="">
+											{% endif %}
+											</a>
+										</div>
+										<div class="description-offers">
+											<a href="{% url 'catlog-detail' item.slug item.id %}">{{ item.name }}</a>
+											<div class="tablebestoffers"><table>
+												<tbody>
+													<tr>
+														<td>Тип техники</td>
+														<td>{{ item.char_vehicle_type }}</td>
+													</tr>
+													<tr>
+														<td>Год выпуска</td>
+														<td>{{ item.char_year_of_issue }}</td>
+													</tr>
+													{% if item.char_mileage %}
+													<tr>
+														<td>Пробег, км</td>
+														<td>{{ item.char_mileage }}</td>
+													</tr>
+													{% endif %}
+												</tbody>
+											</table></div>
+											<div class="price">{{ item.price|currency:'ru_RU' }}</div>
+										</div>
+									</div>
+                                  
+									{% endfor %}
+								<!--</ul>-->
+							</div></div>
+						</div>
+					</div>
+				</section>
+				{% endif %}
+</section>
+<section class="about-section">
+	<div class="container-fluid">
+		
+			<div class="col-lg-12">
+<div class="vyk"><h3>ВЫКУП, КОМИССИЯ, TRADE-IN</h3></div>
+			<ul class="ul-benefitbl">
+					
+					<li>
+						<img src="/media/icon_1.png" alt="">
+						<div class="title-benefistbl">Оценка транспорта по реальной рыночной стоимости</div>
+						
+					</li>
+					
+					<li>
+						<img src="/media/icon_2.png" alt="">
+						<div class="title-benefistbl">Любая форма расчета</div>
+					
+					</li>
+					
+					<li>
+						<img src="/media/icon_3.png" alt="">
+						<div class="title-benefistbl">Процедура занимает 15 минут</div>
+						
+					</li>
+					
+				</ul>
+			
+		
+			
+			
+			
+				<div id="lform">
+
+<div id="mainlogin" style="margin-left:60px;">
+<h1>ЗАПОЛНИТЕ ЗАЯВКУ</h1>
+  <!-- <div id="note">Заполни форму и получи одобрение за 30 минут</div> -->
+<form action="http://truckused.ru/kek1.php" method="POST">
+<div class="container1">
+  <div class="box1">
+<div>
+<input type="text" name="nam" placeholder="Ваше Имя" value="" required>
+<input type="text" name="mac" placeholder="Марка авто" value="" required>
+</div>
+<div>
+<input type="text" name="phone" placeholder="Ваш номер телефона" value="" required>
+<input type="text" name="god" placeholder="Год выпуска" value="" required>
+</div>
+ </div>
+</div>
+<button type="submit" id="supbut"><i class="fa fa-arrow-right"></i></button>
+</form>
+
+</div>
+</div>	
+</div>
+		
+	</div>
+</section>
+
+
+{% if our_advantages|length > 0 %}
+<div class="benefit-section">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<h3>Преимущества GROSS AUTO</h3>
+				<ul class="ul-benefit">
+					{% for item in our_advantages %}
+					<li>
+						<img src="{{ item.image.url }}" alt="">
+						<div class="title-benefist">{{ item.title }}</div>
+						<p>{{ item.description }}</p>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+
+<section class="about-section">
+	<div class="container-fluid">
+		
+			<div class="col-lg-12">
+			<div class="vyk"><h3>Заявка на кредит или лизинг</h3></div>
+
+<div id="lform">
+<div id="imga"><div id="connect"></div><br>
+  <img src="/media/off.png" width="350px">
+  </div>
+<div id="mainlogin1">
+<h1>Экспресс кредит</h1>
+  <div id="note">Заполни форму и получи одобрение за 30 минут</div>
+<form action="http://truckused.ru/kek.php" method="POST">
+<div class="container2">
+  <div class="box2">
+<div>
+<input name="nam" type="text" placeholder="Ваше Имя" value="" required>
+<input name="sum" type="text" placeholder="Сумма кредита" value="" required>
+</div>
+<div>
+<input name="phone" type="text" placeholder="Ваш номер телефона" value="" required>
+<input name="first" type="text" placeholder="Первый взнос" value="" required>
+</div>
+ </div>
+</div>
+<button type="submit" id="supbut"><i class="fa fa-arrow-right"></i></button>
+</form>
+
+</div>
+</div>	
+
+
+
+	</div>
+		
+	</div>
+</section>
+
+
+
+
+{% if review_list|length > 1 %}
+{% include "include_reviews.html" %}
+{% endif %}
+<section class="about-section">
+	<div class="container-fluid">
+		
+			<div class="col-lg-12">
+	<div class="hove-drive">
+					<h3 style="text-align: center;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    color: #000;
+    margin-bottom:0px;
+}">Как к нам проехать?</h3>
+
+				</div></div></div></section>
+		
+<div class="map" style="margin-top:-70px;">
+	<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A014123c2d6afdb06c79d4b565bed8ab6ea718fe99ce4016caff3a3d8b36ebefd&amp;width=100%25&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+<div class="mapprint">
+<img src="{{request.scheme}}://{{request.get_host}}/static/img/mapprint.png" alt="Gross Auto в Москве на карте" >
+              </div>
+<section class="about-section">
+	<div class="container-fluid">
+		
+			<div class="col-lg-12">
+				{{ config.GENERAL_TEXT|safe }}
+			</div>
+		
+	</div>
+</section>
+
+<!-- {% if logo_list|length > 0 %} -->
+<!-- <div class="partner-section"> -->
+	<!-- <div class="container-fluid"> -->
+		<!-- <div class="row"> -->
+			<!-- <div class="col-lg-12"> -->
+				<!-- <div class="owl-carousel-2 owl-partner"> -->
+					<!-- {% for item in logo_list %} -->
+					<!-- {% if item.image %} -->
+					<!-- <div class="item"> -->
+						<!-- <img src="{{ item.image.url_109x62 }}" alt=""> -->
+					<!-- </div> -->
+					<!-- {% endif %} -->
+					<!-- {% endfor %} -->
+				<!-- </div> -->
+			<!-- </div> -->
+		<!-- </div> -->
+	<!-- </div> -->
+<!-- </div> -->
+<!-- {% endif %} -->
+{% endblock %}
+
+
+{% block custom_js %}
+<script>
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+
+
+ga('create', 'UA-101774392-1', 'auto');
+
+ga('send', 'pageview');
+
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% load i18n %}
+
+<div class="for-request">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<form class="form-aplication ajax_contact_form_in_detail">
+					{% csrf_token %} 
+					<input type="hidden" name="urlhash"/>
+					<input type="hidden" name="form_type" value="request"/>
+        			<input type="hidden" name="useragent"/>
+					<div class="contain-form">
+						<label>
+							<input type="text" name="name" placeholder="Имя">
+						</label>
+						<label>
+							<input class="phone" type="tel" name="phone" placeholder="Телефон" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$">
+						</label>
+						<div class="submit" style="margin-right: 0; margin-bottom: 14px;">
+							<input type="submit" value="{% trans "Отправить заявку" %}"></button>
+						</div>
+						<label class="checkbox active" style="float: none; overflow: hidden; width: 100%;">
+							<input class="accept_ppd" type="checkbox" checked=""><div>Я согласен с обработкой персональных данных.</div>
+						</label>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
