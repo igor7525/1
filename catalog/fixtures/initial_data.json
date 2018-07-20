@@ -1,0 +1,72 @@
+[
+  {
+    "model": "catalog.gearboxtype",
+    "pk": 1,
+    "fields": {
+      "name": "МКПП",
+      "slug": "mkpp"
+,"created_at":"2011-09-01T13:20:30+03:00"
+,"updated_at":"2011-09-01T13:20:30+03:00"
+    }
+  },
+  {
+    "model": "catalog.gearboxtype",
+    "pk": 2,
+    "fields": {
+      "name": "АКПП",
+      "slug": "akpp"
+,"created_at":"2011-09-01T13:20:30+03:00"
+,"updated_at":"2011-09-01T13:20:30+03:00"
+    }
+  },
+  {
+    "model": "catalog.WheelArrangement",
+    "pk": 1,
+    "fields": {
+      "name": "4x2",
+      "slug": "4x2"
+,"created_at":"2011-09-01T13:20:30+03:00"
+,"updated_at":"2011-09-01T13:20:30+03:00"
+    }
+  },
+  {
+    "model": "catalog.WheelArrangement",
+    "pk": 2,
+    "fields": {
+      "name": "4x4",
+      "slug": "4x4"
+,"created_at":"2011-09-01T13:20:30+03:00"
+,"updated_at":"2011-09-01T13:20:30+03:00"
+    }
+  },
+  {
+    "model": "catalog.WheelArrangement",
+    "pk": 3,
+    "fields": {
+      "name": "6x4",
+      "slug": "6x4"
+,"created_at":"2011-09-01T13:20:30+03:00"
+,"updated_at":"2011-09-01T13:20:30+03:00"
+    }
+  },
+  {
+    "model": "catalog.WheelArrangement",
+    "pk": 4,
+    "fields": {
+      "name": "6x6",
+      "slug": "6x6"
+,"created_at":"2011-09-01T13:20:30+03:00"
+,"updated_at":"2011-09-01T13:20:30+03:00"
+    }
+  },
+  {
+    "model": "catalog.WheelArrangement",
+    "pk": 5,
+    "fields": {
+      "name": "8x4",
+      "slug": "8x4"
+,"created_at":"2011-09-01T13:20:30+03:00"
+,"updated_at":"2011-09-01T13:20:30+03:00"
+    }
+  }
+]
